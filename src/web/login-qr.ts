@@ -215,16 +215,14 @@ export async function startWebLoginWithQr(
   };
 }
 
-export async function startWebLoginWithPairingCode(
-  opts: {
-    phoneNumber: string;
-    verbose?: boolean;
-    timeoutMs?: number;
-    force?: boolean;
-    accountId?: string;
-    runtime?: RuntimeEnv;
-  },
-): Promise<{ pairingCode?: string; message: string }> {
+export async function startWebLoginWithPairingCode(opts: {
+  phoneNumber: string;
+  verbose?: boolean;
+  timeoutMs?: number;
+  force?: boolean;
+  accountId?: string;
+  runtime?: RuntimeEnv;
+}): Promise<{ pairingCode?: string; message: string }> {
   const runtime = opts.runtime ?? defaultRuntime;
   const cfg = loadConfig();
   const account = resolveWhatsAppAccount({ cfg, accountId: opts.accountId });
